@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 })
 export class QuesComponent implements OnInit {
   ques: any = {};
+  quesMD = "";
   ansForm: FormGroup;
   progress = true;
   constructor(
@@ -55,6 +56,7 @@ export class QuesComponent implements OnInit {
     this.http.get(this.storeInfo.serverURL + '/ques', {headers : authHeader}).pipe().subscribe((data)=>{
       console.log(data)
       this.ques = data;
+      this.quesMD = atob(data['Quesmd']);
       this.ansForm.get('qno').setValue(data['SN'])
       this.progress = false;
     },error =>{
