@@ -12,3 +12,13 @@
   .hoverCursor{
     cursor: pointer;
   }
+
+ngx-md h3{
+    font-size: 2.1rem;
+}
+ngx-md h2{
+  font-size: 2.6rem;
+}
+ngx-md pre{
+  font-size: 1.4rem;
+}
