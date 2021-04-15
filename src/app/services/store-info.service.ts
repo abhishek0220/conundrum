@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class StoreInfoService {
   authToken : string;
   isSignedIn: boolean;
-  serverURL = "https://conundrum-backend.azurewebsites.net";
+  serverURL = "http://conundrum-backend.azurewebsites.net";
   constructor() {
     this.refresh()
   }

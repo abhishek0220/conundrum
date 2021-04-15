@@ -12,6 +12,7 @@ import { Router } from "@angular/router";
 })
 export class QuizComponent implements OnInit {
   loginForm: FormGroup;
+  progress = true;
   constructor(
     private storeInfo: StoreInfoService,
     public fb: FormBuilder,
@@ -25,6 +26,9 @@ export class QuizComponent implements OnInit {
   ngOnInit(): void {
     if(this.storeInfo.isSignedIn){
       this.goTonext();
+    }
+    else{
+      this.progress = false;
     }
   }
   openSnackBar(message: string, action: string) {
@@ -50,8 +54,10 @@ export class QuizComponent implements OnInit {
       var authHeader = {
         'Authorization' : tok
       }
+      this.progress = true;
       this.http.get(this.storeInfo.serverURL + '/info', {headers : authHeader}).pipe().subscribe((data)=>{
         console.log(data)
+        this.progress = false;
         if(data['status'] != 200) this.openSnackBar(data['msg'],"Close")
         else{
           this.storeInfo.setToken(tok);
@@ -59,6 +65,7 @@ export class QuizComponent implements OnInit {
         }
       },error =>{
         console.log(error)
+        this.progress = false;
       })
     }
   }
