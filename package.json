@@ -23,6 +23,7 @@
     "@angular/platform-browser-dynamic": "~11.2.10",
     "@angular/router": "~11.2.10",
     "materialize-css": "^1.0.0-rc.2",
+    "ngx-countdown": "^11.0.3",
     "ngx-md": "^8.1.6",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

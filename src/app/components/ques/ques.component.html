@@ -1,7 +1,8 @@
 <div style="position: fixed; right: 20px; top: 20px;">
     <a (click)="logout()" class="hoverCursor"><i class="fa fa-sign-out" aria-hidden="true" style="font-size: 45px;"></i></a>
 </div>
-<div class="container" style="margin-top: 70px;">
+<div class="container" style="margin-top: 70px;" [hidden]="toDisplay!=1">
+    Time Remaining : <countdown #cd [config]="{'demand' : false,'leftTime' : timeRemain}"></countdown>
     <ngx-md [data]="quesMD">
     </ngx-md>
     <form [formGroup]="ansForm" (ngSubmit)="submitAns()">
@@ -13,4 +14,10 @@
             <button class="btn blue" type="submit" [disabled] = "progress">Submit Ans</button>
         </div>
     </form>    
+</div>
+<div class="container center-align" style="margin-top: 70px;" *ngIf="toDisplay==2">
+    <h2>Comptetition Not Started</h2>
+</div>
+<div class="container center-align" style="margin-top: 70px;" *ngIf="toDisplay==3">
+    <h2>Comptetition Ended</h2>
 </div>

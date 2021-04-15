@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { StoreInfoService }  from '../../services/store-info.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from '@angular/common/http';
 import { Router } from "@angular/router";
+import { CountdownComponent, CountdownConfig, CountdownEvent } from 'ngx-countdown';
 
 @Component({
   selector: 'app-ques',
   templateUrl: './ques.component.html',
   styleUrls: ['./ques.component.css']
 })
+
 export class QuesComponent implements OnInit {
+  @ViewChild('cd') private countdown: CountdownComponent;
   ques: any = {};
   quesMD = "";
   ansForm: FormGroup;
   progress = true;
+  timeRemain = 150;
+  toDisplay = 0;
   constructor(
     private storeInfo: StoreInfoService,
     private http: HttpClient,
@@ -52,12 +57,23 @@ export class QuesComponent implements OnInit {
     var authHeader = {
       'Authorization' : this.storeInfo.authToken
     }
-    
     this.http.get(this.storeInfo.serverURL + '/ques', {headers : authHeader}).pipe().subscribe((data)=>{
       console.log(data)
-      this.ques = data;
-      this.quesMD = atob(data['Quesmd']);
-      this.ansForm.get('qno').setValue(data['SN'])
+      if(data['status'] == 200){
+        this.toDisplay = 1;
+        this.ques = data;
+        this.quesMD = atob(data['Quesmd']);
+        this.timeRemain = data['timeRem']
+        this.countdown.begin();
+        this.ansForm.get('qno').setValue(data['SN'])
+      }
+      else if(data['status'] == 101){
+        this.toDisplay = 2;
+      }
+      else if(data['status'] == 251){
+        this.toDisplay = 3;
+      }
+      
       this.progress = false;
     },error =>{
       console.log(error)

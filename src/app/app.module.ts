@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxMdModule } from 'ngx-md';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgxMdModule } from 'ngx-md';
     BrowserAnimationsModule,
     MatSnackBarModule,
     HttpClientModule,
-    NgxMdModule
+    NgxMdModule,
+    CountdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]
