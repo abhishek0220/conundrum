@@ -19,8 +19,8 @@ export class QuesComponent implements OnInit {
   quesMD = "";
   ansForm: FormGroup;
   progress = true;
-  timeRemain = 150;
-  timeTostart = 150;
+  timeRemain = 5;
+  timeTostart = 5;
   toDisplay = 0;
   constructor(
     private storeInfo: StoreInfoService,
@@ -54,6 +54,18 @@ export class QuesComponent implements OnInit {
     this.storeInfo.reset();
     this.router.navigateByUrl('');
   }
+  onTimerFinished(e:Event){
+    if (e["action"] == "done" && this.toDisplay == 1){
+       console.log("done")
+       this.getQues();
+     }
+   }
+   onTimerFinished2(e:Event){
+    if (e["action"] == "done" && this.toDisplay == 2){
+       console.log("done")
+       this.getQues();
+     }
+   }
   getQues(){
     this.progress = true;
     var authHeader = {
