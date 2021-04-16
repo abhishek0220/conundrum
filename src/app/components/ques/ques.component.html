@@ -15,9 +15,14 @@
         </div>
     </form>    
 </div>
-<div class="container center-align" style="margin-top: 70px;" *ngIf="toDisplay==2">
-    <h2>Comptetition Not Started</h2>
+<div class="container center-align" style="margin-top: 70px;" [hidden]="toDisplay!=2">
+    <h2>Starting in</h2> <countdown #cd2 [config]="{'demand' : false,'leftTime' : timeTostart}" style="font-size: 2rem;"></countdown>
 </div>
-<div class="container center-align" style="margin-top: 70px;" *ngIf="toDisplay==3">
+<div class="container center-align" style="margin-top: 70px;" [hidden]="toDisplay!=3">
     <h2>Comptetition Ended</h2>
+    <h4>Will notify the results soon</h4>
+</div>
+<div class="container center-align" style="margin-top: 70px;" [hidden]="toDisplay!=4">
+    <h4>Test completed ;)</h4>
+    <h5>Will notify the results soon</h5>
 </div>

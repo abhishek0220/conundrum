@@ -10,12 +10,14 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgxMdModule } from 'ngx-md';
 import { CountdownModule } from 'ngx-countdown';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     QuizComponent,
-    QuesComponent
+    QuesComponent,
+    LeaderboardComponent
   ],
   imports: [
     BrowserModule,

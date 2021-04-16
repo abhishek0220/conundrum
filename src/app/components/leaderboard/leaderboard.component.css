@@ -1,0 +1,9 @@
+thead tr th{
+    font-weight: bold;
+}
+table.striped > tbody > tr:nth-child(2n+1){
+    background-color: rgba(223, 224, 255, 0.5);
+}
+table.highlight>tbody>tr:hover {
+    background-color: rgba(194, 206, 23, 0.5);      /* whatever color you want */
+}

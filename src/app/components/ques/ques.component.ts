@@ -14,11 +14,13 @@ import { CountdownComponent, CountdownConfig, CountdownEvent } from 'ngx-countdo
 
 export class QuesComponent implements OnInit {
   @ViewChild('cd') private countdown: CountdownComponent;
+  @ViewChild('cd2') private countdown2: CountdownComponent;
   ques: any = {};
   quesMD = "";
   ansForm: FormGroup;
   progress = true;
   timeRemain = 150;
+  timeTostart = 150;
   toDisplay = 0;
   constructor(
     private storeInfo: StoreInfoService,
@@ -69,9 +71,14 @@ export class QuesComponent implements OnInit {
       }
       else if(data['status'] == 101){
         this.toDisplay = 2;
+        this.timeTostart = data['timeRem']
+        this.countdown2.begin();
       }
       else if(data['status'] == 251){
         this.toDisplay = 3;
+      }
+      else if(data['status'] == 210){
+        this.toDisplay = 4;
       }
       
       this.progress = false;
