@@ -27,7 +27,7 @@ export class LeaderboardComponent implements OnInit {
     this.getRanklist()
   }
   getRanklist(){
-    this.http.get(this.storeInfo.serverURL + '/leaderboard' + `?name=${this.typeStr}`).pipe().subscribe((data)=>{
+    this.http.get('https://technunctus.blob.core.windows.net/conundrum/leaderboard.json').pipe().subscribe((data)=>{
       console.log(data)
       if(data['status'] == 200){
         this.leaderBoard = data['list'];
