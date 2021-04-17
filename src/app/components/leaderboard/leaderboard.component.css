@@ -4,6 +4,15 @@ thead tr th{
 table.striped > tbody > tr:nth-child(2n+1){
     background-color: rgba(223, 224, 255, 0.5);
 }
+table.striped > tbody > tr:nth-child(1){
+    background-color: rgba(0, 175, 131, 0.575);
+}
+table.striped > tbody > tr:nth-child(2){
+    background-color: rgba(7, 247, 187, 0.575);
+}
+table.striped > tbody > tr:nth-child(3){
+    background-color: rgba(65, 228, 187, 0.575);
+}
 table.highlight>tbody>tr:hover {
     background-color: rgba(194, 206, 23, 0.5);      /* whatever color you want */
 }

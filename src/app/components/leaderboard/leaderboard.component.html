@@ -6,6 +6,7 @@
     <table class="striped highlight" *ngIf="toDisp == 1">
         <thead>
           <tr>
+            <th>Rank</th>
               <th>Username</th>
               <th>Name</th>
               <th>Score</th>
@@ -13,7 +14,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of leaderBoard">
+          <tr *ngFor="let item of leaderBoard; let i = index">
+            <td>{{i+1}}</td>
             <td>{{item['username']}}</td>
             <td>{{item['name']}}</td>
             <td>{{item['score']}}</td>
