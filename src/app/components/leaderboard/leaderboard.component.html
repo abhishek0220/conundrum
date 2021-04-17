@@ -1,6 +1,9 @@
 <div class="container">
     <h4>Leaderboard</h4>
-    <table class="striped highlight">
+    <div *ngIf="toDisp == 2">
+      <h6>*Rankilist not public, will be made public once competition ends</h6>
+    </div>
+    <table class="striped highlight" *ngIf="toDisp == 1">
         <thead>
           <tr>
               <th>Username</th>

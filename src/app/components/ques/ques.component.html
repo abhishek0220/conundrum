@@ -3,6 +3,19 @@
 </div>
 <div class="container" style="margin-top: 70px;" [hidden]="toDisplay!=1">
     Time Remaining : <countdown #cd [config]="{'demand' : false,'leftTime' : timeRemain}" (event)="onTimerFinished($event)"></countdown>
+    <br>
+    <h6>Score: {{ques['SN']-1}}</h6>
+    <hr>
+    <div style="margin: auto;">
+        <h5>Instruction Before you begin</h5>
+    </div>
+    <ul>
+        <li>For string answer, characters can be in any case</li>
+        <li>There is no option to go back to previous question</li>
+        <li>There is no option to End Test as its get updated in realtime</li>
+        <li>Final ranklist will be made public within 2hrs of competition ending</li>    
+    </ul>
+    <hr>
     <ngx-md [data]="quesMD">
     </ngx-md>
     <form [formGroup]="ansForm" (ngSubmit)="submitAns()">
